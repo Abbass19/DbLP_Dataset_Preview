@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE dblp SYSTEM "dblp.dtd">
+<dblp>
+<article key="journals/tkde/Smith21" mdate="2021-01-01">
+<author orcid="0000-0001-1000-1000">Jane Smith</author>
+<author>Wei Wang 0001</author>
+<title>A study on gr&uuml;ne graphs.</title>
+<year>2021</year>
+<journal>tkde</journal>
+<ee>https://doi.org/10.1/abc</ee>
+</article>
+
+<inproceedings key="conf/kdd/Smith21" mdate="2021-01-01">
+<author orcid="0000-0001-1000-1000">Jane Smith</author>
+<author>Someone NoOrcid</author>
+<title>Mining graphs at scale.</title>
+<year>2021</year>
+<booktitle>KDD</booktitle>
+<ee>https://doi.org/10.2/def</ee>
+<crossref>conf/kdd/2021</crossref>
+</inproceedings>
+
+<inproceedings key="conf/kdd/Wang22" mdate="2022-01-01">
+<author>Wei Wang 0001</author>
+<title>Second paper, no ee.</title>
+<year>2022</year>
+<booktitle>KDD</booktitle>
+</inproceedings>
+
+<proceedings key="conf/kdd/2021" mdate="2021-01-01">
+<title>Proceedings of KDD 2021</title>
+<year>2021</year>
+</proceedings>
+
+<article key="journals/tkde/Old99" mdate="1999-01-01">
+<author>Old Author</author>
+<title>An old paper with no ee.</title>
+<year>1999</year>
+<journal>tkde</journal>
+</article>
+
+<www key="homepages/1/1000" mdate="2021-01-01">
+<author orcid="0000-0001-1000-1000">Jane Smith</author>
+</www>
+
+<www key="homepages/2/2000" mdate="2021-01-01">
+<author>Wei Wang 0001</author>
+<author>W. Wang</author>
+</www>
+</dblp>

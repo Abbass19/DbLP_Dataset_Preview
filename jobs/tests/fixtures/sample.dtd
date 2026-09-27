@@ -1,0 +1,27 @@
+<!-- Minimal permissive DTD fixture: enough entity + element declarations
+     for lxml's non-validating entity resolution in tests. Not the real
+     dblp.dtd (that's fetched from Dagstuhl's DROPS server at runtime). -->
+<!ENTITY uuml "&#252;">
+<!ENTITY auml "&#228;">
+
+<!ELEMENT dblp (article|inproceedings|proceedings|book|incollection|phdthesis|mastersthesis|www)*>
+<!ELEMENT article ANY>
+<!ELEMENT inproceedings ANY>
+<!ELEMENT proceedings ANY>
+<!ELEMENT book ANY>
+<!ELEMENT incollection ANY>
+<!ELEMENT phdthesis ANY>
+<!ELEMENT mastersthesis ANY>
+<!ELEMENT www ANY>
+<!ELEMENT author ANY>
+<!ELEMENT title ANY>
+<!ELEMENT year ANY>
+<!ELEMENT ee ANY>
+<!ELEMENT crossref ANY>
+<!ELEMENT booktitle ANY>
+<!ELEMENT journal ANY>
+
+<!ATTLIST article key CDATA #IMPLIED>
+<!ATTLIST inproceedings key CDATA #IMPLIED>
+<!ATTLIST www key CDATA #IMPLIED>
+<!ATTLIST author orcid CDATA #IMPLIED>

@@ -1,0 +1,86 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #4f46e5;
+  --highlight: #f59e0b;
+  --good: #059669;
+  --bad: #dc2626;
+  --cat-1: #0072b2;
+  --cat-2: #e69f00;
+  --cat-3: #009e73;
+  --cat-4: #cc79a7;
+  --cat-5: #56b4e9;
+  --cat-6: #d55e00;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1120;
+  --surface: #111827;
+  --border: #1f2937;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #818cf8;
+  --highlight: #fbbf24;
+  --good: #34d399;
+  --bad: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px 12px;
+  flex-shrink: 0;
+}
+
+.sidebar h1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 12px 24px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.sidebar nav a.active {
+  background: var(--accent);
+  color: white;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}

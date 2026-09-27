@@ -1,0 +1,64 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: dblp
+      POSTGRES_USER: dblp
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dblp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - ollama:/root/.ollama
+
+  api:
+    build: ./api
+    environment:
+      DATABASE_URL: postgresql://dblp:${DB_PASSWORD}@db/dblp
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL}
+      EMBED_MODEL: ${EMBED_MODEL}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+
+  web:
+    build: ./web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+  jobs:
+    build: ./jobs
+    profiles: ["jobs"]
+    environment:
+      DATABASE_URL: postgresql://dblp:${DB_PASSWORD}@db/dblp
+      OLLAMA_URL: http://ollama:11434
+      EMBED_MODEL: ${EMBED_MODEL}
+      DATA_SCOPE: ${DATA_SCOPE}
+      OPENALEX_MAILTO: ${OPENALEX_MAILTO}
+    volumes:
+      - ./data:/data
+      - ./reports:/app/reports
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata: {}
+  ollama: {}
